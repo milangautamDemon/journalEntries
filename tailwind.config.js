@@ -7,6 +7,11 @@ export default {
   theme: {
     extend: {},
   },
-  plugins: [],
+  variants: {
+    extend: {},
+  },
+  plugins: [
+  
+  ],
 }
 
