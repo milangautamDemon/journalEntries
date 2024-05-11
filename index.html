@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Journal Entries</title>
+  </head>
+  <body>
+    
+    <div class="journal-container border-2 border-solid border-slate-500 my-4 p-4 flex flex-col">
+            
+      <div class="journal-entry-settting-heading-wrapper">
+          <div class="setting">
+              <i class="fa fa-cog" aria-hidden="true"></i>
+          </div>
+          <h3 class="heading text-3xl">Journal Entry/Add</h3>
+      </div>
+      <div class="journal-entry-wrapper">
+          <div class="titles">
+              <label class="title title-actions">Actions</label>
+              <label for="Particulars" class="title title-Particulars">Particulars</label>
+              <label for="Debit" class="title title-Debit">Debit</label>
+              <label for="Credit" class="title title-Credit">Credit</label>
+          </div>
+          <div class="data-entry-wrapper">
+              <div class="Action-icons">
+                  <div class="item-delete"><i class="fa-solid fa-x"></i></div>
+                  <div class="item-add-up"><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+                  <div class="item-add-down"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+              </div>
+              <input type="text" class="data-input" id="Particulars" />
+              <input type="number" class="data-input" id="Debit" />
+              <input type="number" class="data-input" id="Credit" />
+          </div>
+      </div>
+      <div class="datas-lists">
+          <div class="delete-journal-entry">
+              <i class="fa-solid fa-x"></i>
+          </div>
+          <h3 class="total-title">Total</h3>
+          <div class="journal-debit-total">Rs 0</div>
+          <div class="journal-credit-total">Rs 0</div>
+      </div>
+      <button class="add-btn bg-rose-500">Add Journal Entry</button>
+    </div>
+
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>
