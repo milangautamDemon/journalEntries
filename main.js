@@ -1,6 +1,5 @@
 import './style.css';
 import { appendFunction } from './reusableFunc.js';
-import {updateParticulars, updateDebit, updateCredit} from "./inputFunction.js"
 
 //create new div to insert inside journalItems-wrapper
 const entryListsWrapper = document.createElement("div");
@@ -17,12 +16,6 @@ journalItemsWrapper.prepend(entryListsWrapper);
 const particularsInput = document.querySelector("#Particulars");
 const debitInput = document.querySelector("#Debit");
 const creditInput = document.querySelector("#Credit");
-
-// Event listeners for input changes
-particularsInput.addEventListener("change", updateParticulars);
-debitInput.addEventListener("change", updateDebit);
-creditInput.addEventListener("change", updateCredit);
-
 
 const createAndAppendList = () => {
 
