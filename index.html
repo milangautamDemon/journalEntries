@@ -12,7 +12,7 @@
     <div class="journal-container my-4 mx-8 flex flex-col gap-8">
             
       <div class="flex flex-row justify-start gap-4 items-center py-4 border-b-2 border-gray-400 border-solid">
-          <div class="setting bg-green-500 h-full px-4 py-2 rounded-md">
+          <div class="setting btn-small-secondary">
               <i class="fa-solid fa-gear text-white"></i>
           </div>
           <h3 class="heading text-3xl font-semibold">Journal Entry/Add</h3>
@@ -21,22 +21,26 @@
       <div class="entry-wrapper flex flex-row justify-between items-start text-lg font-semibold border-2 border-gray-200 border-solid w-full">
         <div class="action flex flex-col items-start w-1/5 ">
           <label class="title title-actions py-2 border-b-2 border-gray-200 border-solid w-full pl-2">Actions</label>
-          <div class="Action-icons flex flex-row gap-1 text-sm py-2 pl-2">
-            <div class="item-delete bg-red-700 text-white px-4 py-1 rounded-md">
-              <i class="fa-solid fa-x"></i>
+          <div class="Action-icons flex flex-col md:flex-row gap-1 text-sm py-2 pl-2">
+            <div class="delete-icon flex justify-center">
+              <div class="item-delete btn-small-danger">
+                <i class="fa-solid fa-x"></i>
+              </div>
             </div>
-            <div class="item-add-up bg-blue-700 text-white px-4 py-1 rounded-md">
-              <i class="fa fa-caret-up" aria-hidden="true"></i>
-            </div>
-            <div class="item-add-down bg-blue-700 text-white px-4 py-1 rounded-md">
-              <i class="fa fa-caret-down" aria-hidden="true"></i>
+            <div class="insert-icons flex gap-1">
+              <div class="item-add-up btn-small-primary">
+                <i class="fa fa-caret-up" aria-hidden="true"></i>
+              </div>
+              <div class="item-add-down btn-small-primary">
+                <i class="fa fa-caret-down" aria-hidden="true"></i>
+              </div>
             </div>
           </div>
         </div>
 
         <div class="praticulars flex flex-col items-start w-2/5">
           <label for="Particulars" class="title title-Particulars py-2 border-b-2 border-gray-200 border-solid w-full pl-2">Particulars</label>
-          <div class=" flex flex-row gap-1 text-sm py-2 pl-2 w-full">
+          <div class=" flex flex-row gap-1 text-sm py-2 pl-2 w-full ">
             <input type="text" class="data-input h-full w-full px-2 py-1 text-lg rounded-md outline-none border-gray-400 border-solid border" id="Particulars" />
           </div>
         </div>
@@ -58,9 +62,9 @@
       </div>
       <!--journal entries rows wrapper-->
         <div class="journalItems-wrapper flex flex-col gap-8">
-          <div class="collect-dataList w-full flex pl-2 py-2 border-gray-200 border-solid border text-lg font-semibold">
+          <div class="collective-dataLists w-full flex pl-2 py-2 border-gray-200 border-solid border text-lg font-semibold">
             <div class="flex w-1/5">
-              <div class="item-delete bg-red-700 text-white px-4 py-1 rounded-md text-sm">
+              <div class="item-delete btn-small-danger">
                 <i class="fa-solid fa-x"></i>
               </div>
             </div>
@@ -69,7 +73,7 @@
             <div class="journal-credit-total w-1/5 px-2">Rs 0</div>
           </div>
           <div class="text-white flex justify-end">
-            <button class="btn-primary" id="addNewEntry">Add Journal Entry</button>
+            <button class="addNewList-btn btn-primary" id="addNewEntry">Add Journal Entry</button>
           </div>
         </div>
 
