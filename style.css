@@ -1,3 +1,21 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+    .btn-primary {
+        @apply bg-blue-700 px-4 py-2 text-lg rounded-xl shadow-sm shadow-black/70 hover:bg-blue-600 text-white;
+    };
+    .btn-danger {
+        @apply bg-rose-700 px-4 py-2 text-lg rounded-xl hover:shadow-sm hover:shadow-black/45 hover:bg-rose-600 text-white;
+    };
+    .btn-small-primary {
+        @apply bg-blue-700 hover:bg-blue-600 shadow-sm shadow-black/70 text-white px-4 py-1 rounded-md text-sm;
+    }
+    .btn-small-secondary {
+        @apply bg-green-700 hover:bg-green-600 shadow-sm shadow-black/70 text-white px-4 py-2 rounded-md text-sm;
+    }
+    .btn-small-danger {
+        @apply bg-rose-700 hover:bg-rose-600 shadow-sm shadow-black/70 text-white px-4 py-1 rounded-md text-sm;
+    }
+}

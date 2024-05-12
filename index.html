@@ -5,45 +5,80 @@
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Journal Entries</title>
+    <script src="https://kit.fontawesome.com/b069b63a43.js" crossorigin="anonymous"></script>
   </head>
   <body>
     
-    <div class="journal-container border-2 border-solid border-slate-500 my-4 p-4 flex flex-col">
+    <div class="journal-container my-4 mx-8 flex flex-col gap-8">
             
-      <div class="journal-entry-settting-heading-wrapper">
-          <div class="setting">
-              <i class="fa fa-cog" aria-hidden="true"></i>
+      <div class="flex flex-row justify-start gap-4 items-center py-4 border-b-2 border-gray-400 border-solid">
+          <div class="setting btn-small-secondary">
+              <i class="fa-solid fa-gear text-white"></i>
           </div>
-          <h3 class="heading text-3xl">Journal Entry/Add</h3>
+          <h3 class="heading text-3xl font-semibold">Journal Entry/Add</h3>
       </div>
-      <div class="journal-entry-wrapper">
-          <div class="titles">
-              <label class="title title-actions">Actions</label>
-              <label for="Particulars" class="title title-Particulars">Particulars</label>
-              <label for="Debit" class="title title-Debit">Debit</label>
-              <label for="Credit" class="title title-Credit">Credit</label>
-          </div>
-          <div class="data-entry-wrapper">
-              <div class="Action-icons">
-                  <div class="item-delete"><i class="fa-solid fa-x"></i></div>
-                  <div class="item-add-up"><i class="fa fa-caret-up" aria-hidden="true"></i></div>
-                  <div class="item-add-down"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+
+      <div class="entry-wrapper flex flex-row justify-between items-start text-lg font-semibold border-2 border-gray-200 border-solid w-full">
+        <div class="action flex flex-col items-start w-1/5 ">
+          <label class="title title-actions py-2 border-b-2 border-gray-200 border-solid w-full pl-2">Actions</label>
+          <div class="Action-icons flex flex-col md:flex-row gap-1 text-sm py-2 pl-2">
+            <div class="delete-icon flex justify-center">
+              <div class="item-delete btn-small-danger">
+                <i class="fa-solid fa-x"></i>
               </div>
-              <input type="text" class="data-input" id="Particulars" />
-              <input type="number" class="data-input" id="Debit" />
-              <input type="number" class="data-input" id="Credit" />
+            </div>
+            <div class="insert-icons flex gap-1">
+              <div class="item-add-up btn-small-primary">
+                <i class="fa fa-caret-up" aria-hidden="true"></i>
+              </div>
+              <div class="item-add-down btn-small-primary">
+                <i class="fa fa-caret-down" aria-hidden="true"></i>
+              </div>
+            </div>
           </div>
-      </div>
-      <div class="datas-lists">
-          <div class="delete-journal-entry">
-              <i class="fa-solid fa-x"></i>
+        </div>
+
+        <div class="praticulars flex flex-col items-start w-2/5">
+          <label for="Particulars" class="title title-Particulars py-2 border-b-2 border-gray-200 border-solid w-full pl-2">Particulars</label>
+          <div class=" flex flex-row gap-1 text-sm py-2 pl-2 w-full ">
+            <input type="text" class="data-input h-full w-full px-2 py-1 text-lg rounded-md outline-none border-gray-400 border-solid border" id="Particulars" />
           </div>
-          <h3 class="total-title">Total</h3>
-          <div class="journal-debit-total">Rs 0</div>
-          <div class="journal-credit-total">Rs 0</div>
+        </div>
+
+        <div class="debits flex flex-col items-start w-1/5">
+          <label for="Debit" class="title title-Debit py-2 border-b-2 border-gray-200 border-solid w-full pl-2">Debit</label>
+           <div class=" flex flex-row gap-1 text-sm py-2 pl-2 w-full">
+             <input type="number" class="data-input h-full w-full px-2 py-1 text-lg rounded-md outline-none border-gray-400 border-solid border" id="Debit" />
+           </div>
+        </div>
+
+        <div class="credits flex flex-col items-start w-1/5">
+          <label for="Credit" class="title title-Credit py-2 border-b-2 border-gray-200 border-solid w-full pl-2">Credit</label>
+          <div class=" flex flex-row gap-1 text-sm py-2 px-2 w-full">
+            <input type="number" class="data-input h-full w-full px-2 py-1 text-lg rounded-md outline-none border-gray-400 border-solid border" id="Credit" />
+          </div>
+        </div>
+          
       </div>
-      <button class="add-btn bg-rose-500">Add Journal Entry</button>
-    </div>
+      <!--journal entries rows wrapper-->
+        <div class="journalItems-wrapper flex flex-col gap-8">
+          <div class="collective-dataLists w-full flex pl-2 py-2 border-gray-200 border-solid border text-lg font-semibold">
+            <div class="flex w-1/5">
+              <div class="item-delete btn-small-danger">
+                <i class="fa-solid fa-x"></i>
+              </div>
+            </div>
+            <h3 class="total-title w-2/5 px-2">Total</h3>
+            <div class="journal-debit-total w-1/5 px-2">Rs 0</div>
+            <div class="journal-credit-total w-1/5 px-2">Rs 0</div>
+          </div>
+          <div class="text-white flex justify-end">
+            <button class="addNewList-btn btn-primary" id="addNewEntry">Add Journal Entry</button>
+          </div>
+        </div>
+
+      </div>
+
 
     <script type="module" src="/main.js"></script>
   </body>
