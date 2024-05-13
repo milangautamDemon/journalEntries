@@ -52,6 +52,7 @@ const createAndAppendList = () => {
     entryListsWrapper.appendChild(newList);
 
     eachItemDelete.addEventListener("click", (e) => {
+        console.log(e)
         e.preventDefault();
         newList.remove();
     })
