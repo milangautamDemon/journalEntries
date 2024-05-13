@@ -25,11 +25,11 @@ const createAndAppendList = () => {
 
     const credit = document.createElement("p");
     credit.classList = "w-1/5";
-    credit.textContent = creditInput.value; // Use the current value of the input
+    credit.textContent = creditInput.value; 
 
     const debit = document.createElement("p");
     debit.classList = "w-1/5";
-    debit.textContent = debitInput.value; // Use the current value of the input
+    debit.textContent = debitInput.value;
 
     const particular = document.createElement("p");
     particular.classList = "w-2/5";
@@ -50,6 +50,11 @@ const createAndAppendList = () => {
     appendFunction(newList, [credit, debit, particular, deleteiconwrapper]);
 
     entryListsWrapper.appendChild(newList);
+
+    eachItemDelete.addEventListener("click", (e) => {
+        e.preventDefault();
+        newList.remove();
+    })
 }
 
 //event on the button to add new list
