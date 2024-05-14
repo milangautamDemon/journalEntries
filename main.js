@@ -24,15 +24,15 @@ const createAndAppendList = (addChild, insertNewItemInList) => {
     newList.classList = "new-list flex flex-row-reverse border-2 border-solid border-gray-200 p-2";
 
     const credit = document.createElement("p");
-    credit.classList = "w-1/5";
+    credit.classList = "w-1/5 text-end text-lg px-2 border-l-4 border-solid border-gray-200";
     credit.textContent = creditInput.value; 
 
     const debit = document.createElement("p");
-    debit.classList = "w-1/5";
+    debit.classList = "w-1/5 text-end text-lg px-2 border-l-4 border-solid border-gray-200";
     debit.textContent = debitInput.value;
 
     const particular = document.createElement("p");
-    particular.classList = "w-2/5";
+    particular.classList = "w-2/5 text-lg px-2 border-l-4 border-solid border-gray-200";
     particular.textContent = particularsInput.value;
 
 

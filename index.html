@@ -20,7 +20,7 @@
 
       <div class="entry-wrapper flex flex-row justify-between items-start text-lg font-semibold border-2 border-gray-200 border-solid w-full">
         <div class="action flex flex-col items-start w-1/5 ">
-          <label class="title title-actions py-2 border-b-2 border-gray-200 border-solid w-full pl-2">Actions</label>
+          <label class="title title-actions py-2 border-b-2 border-gray-200 border-solid w-full pl-2 font-bold">Actions</label>
           <div class="Action-icons flex flex-col md:flex-row gap-1 text-sm py-2 pl-2">
             <div class="delete-icon flex justify-center">
               <div class="deleteAll btn-small-danger">
@@ -39,21 +39,21 @@
         </div>
 
         <div class="praticulars flex flex-col items-start w-2/5">
-          <label for="Particulars" class="title title-Particulars py-2 border-b-2 border-gray-200 border-solid w-full pl-2">Particulars</label>
+          <label for="Particulars" class="title title-Particulars py-2 border-b-2 border-gray-200 border-solid w-full px-2 font-bold">Particulars</label>
           <div class=" flex flex-row gap-1 text-sm py-2 pl-2 w-full ">
             <input type="text" class="data-input h-full w-full px-2 py-1 text-lg rounded-md outline-none border-gray-400 border-solid border" id="Particulars" />
           </div>
         </div>
 
         <div class="debits flex flex-col items-start w-1/5">
-          <label for="Debit" class="title title-Debit py-2 border-b-2 border-gray-200 border-solid w-full pl-2">Debit</label>
+          <label for="Debit" class="title title-Debit py-2 border-b-2 border-gray-200 border-solid w-full px-2 text-end font-bold">Debit</label>
            <div class=" flex flex-row gap-1 text-sm py-2 pl-2 w-full">
              <input type="number" class="data-input h-full w-full px-2 py-1 text-lg rounded-md outline-none border-gray-400 border-solid border" id="Debit" />
            </div>
         </div>
 
         <div class="credits flex flex-col items-start w-1/5">
-          <label for="Credit" class="title title-Credit py-2 border-b-2 border-gray-200 border-solid w-full pl-2">Credit</label>
+          <label for="Credit" class="title title-Credit py-2 border-b-2 border-gray-200 border-solid w-full px-2 text-end font-bold">Credit</label>
           <div class=" flex flex-row gap-1 text-sm py-2 px-2 w-full">
             <input type="number" class="data-input h-full w-full px-2 py-1 text-lg rounded-md outline-none border-gray-400 border-solid border" id="Credit" />
           </div>
@@ -68,9 +68,9 @@
                 <i class="fa-solid fa-x"></i>
               </div>
             </div>
-            <h3 class="total-title w-2/5 px-2">Total</h3>
-            <div class="journal-debit-total w-1/5 px-2">Rs 0</div>
-            <div class="journal-credit-total w-1/5 px-2">Rs 0</div>
+            <h3 class="total-title w-2/5 px-2 text-end border-l-4 border-solid border-gray-200 font-bold">Total:</h3>
+            <div class="journal-debit-total w-1/5 px-2 text-end border-l-4 border-solid border-gray-200">Rs 0</div>
+            <div class="journal-credit-total w-1/5 px-2 text-end border-l-4 border-solid border-gray-200">Rs 0</div>
           </div>
           <div class="text-white flex justify-end">
             <button class="addNewList-btn btn-primary" id="addNewEntry">Add Journal Entry</button>
