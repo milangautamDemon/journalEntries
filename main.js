@@ -17,7 +17,7 @@ const particularsInput = document.querySelector("#Particulars");
 const debitInput = document.querySelector("#Debit");
 const creditInput = document.querySelector("#Credit");
 
-const createAndAppendList = () => {
+const createAndAppendList = (addChild, insertNewItemInList) => {
 
     //create list
     const newList = document.createElement("div");
@@ -49,7 +49,30 @@ const createAndAppendList = () => {
     //append all child of new list in newlist using reusable function
     appendFunction(newList, [credit, debit, particular, deleteiconwrapper]);
 
-    entryListsWrapper.appendChild(newList);
+    if (addChild == "top") {
+       entryListsWrapper.prepend(newList);    
+    } 
+    if (addChild == "up"){
+        if (insertNewItemInList) {
+            // Insert the new element before the clicked div
+            entryListsWrapper.insertBefore(newList, insertNewItemInList);
+        }else {
+            console.error("Insert element not found.");
+        }
+    }
+    if (addChild == "bottom") {
+        if (insertNewItemInList) { 
+            insertNewItemInList.insertAdjacentElement('afterend', newList);
+        } else {
+            console.error("Insert element not found.");
+        }
+    }
+
+      // Reset input values
+      particularsInput.value = "";
+      debitInput.value = "";
+      creditInput.value = "";
+
 
     eachItemDelete.addEventListener("click", (e) => {
         console.log(e)
@@ -62,7 +85,7 @@ const createAndAppendList = () => {
 //event on the button to add new list
 addNewlists.addEventListener("click", (e) =>{
     e.preventDefault();
-    createAndAppendList();
+    createAndAppendList("top");
 });
 
 
@@ -83,5 +106,47 @@ deleteAllFromTop.addEventListener("click", (e) =>{
     e.preventDefault();
     removeItems(entryListsWrapper, lists);
 });
+
+
+//add list in top
+const addListInBottom = document.querySelector(".add-list-bottom");
+const addListInUp = document.querySelector(".add-list-top");
+
+addListInBottom.addEventListener("click", (e) => {
+    e.preventDefault();
+    const focusList = entryListsWrapper.children;
+    const lastList = focusList[focusList.length - 1];
+    createAndAppendList("bottom", lastList);
+});
+
+addListInUp.addEventListener("click", (e) => {
+    e.preventDefault();
+    const focusList = entryListsWrapper.children;
+    const firstList = focusList[0];
+    createAndAppendList("up", firstList);
+});
+
+
+
+
+// entryListsWrapper.addEventListener("click", () => {
+//     const focusList = entryListsWrapper.children;
+//     const ChildArrayLists = Array.from(focusList);
+//     ChildArrayLists.forEach(list => {
+//         addListInBottom.addEventListener("click", (e) => {
+//             e.preventDefault();
+//             createAndAppendList("bottom", list);
+//         })
+//         addListInUp.removeEventListener("click", (e) => {
+//             e.preventDefault();
+//             createAndAppendList("up", list);
+//         })
+        
+//     });
+// });
+
+
+
+
 
 
