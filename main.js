@@ -1,5 +1,5 @@
 import './style.css';
-import { appendFunction } from './reusableFunc.js';
+import { appendFunction, removeItems } from './reusableFunc.js';
 
 //create new div to insert inside journalItems-wrapper
 const entryListsWrapper = document.createElement("div");
@@ -21,7 +21,7 @@ const createAndAppendList = () => {
 
     //create list
     const newList = document.createElement("div");
-    newList.classList = "flex flex-row-reverse border-2 border-solid border-gray-200 p-2";
+    newList.classList = "new-list flex flex-row-reverse border-2 border-solid border-gray-200 p-2";
 
     const credit = document.createElement("p");
     credit.classList = "w-1/5";
@@ -56,11 +56,32 @@ const createAndAppendList = () => {
         e.preventDefault();
         newList.remove();
     })
-}
+
+};
 
 //event on the button to add new list
 addNewlists.addEventListener("click", (e) =>{
     e.preventDefault();
     createAndAppendList();
+});
 
-})
+
+//delete all lists
+const deleteAllFromBottom  = document.querySelector(".all-items-delete");
+
+const lists = entryListsWrapper.childNodes;
+
+deleteAllFromBottom.addEventListener("click", (e) =>{
+    e.preventDefault();
+    removeItems(entryListsWrapper, lists);
+});
+
+//delete all list from top
+const deleteAllFromTop = document.querySelector(".deleteAll");
+
+deleteAllFromTop.addEventListener("click", (e) =>{
+    e.preventDefault();
+    removeItems(entryListsWrapper, lists);
+});
+
+
