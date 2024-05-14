@@ -17,7 +17,7 @@ const particularsInput = document.querySelector("#Particulars");
 const debitInput = document.querySelector("#Debit");
 const creditInput = document.querySelector("#Credit");
 
-const createAndAppendList = () => {
+const createAndAppendList = (addChild, insertNewItemInList) => {
 
     //create list
     const newList = document.createElement("div");
@@ -49,7 +49,30 @@ const createAndAppendList = () => {
     //append all child of new list in newlist using reusable function
     appendFunction(newList, [credit, debit, particular, deleteiconwrapper]);
 
-    entryListsWrapper.appendChild(newList);
+    if (addChild == "top") {
+       entryListsWrapper.prepend(newList);    
+    } 
+    if (addChild == "up"){
+        if (insertNewItemInList) {
+            // Insert the new element before the clicked div
+            entryListsWrapper.insertBefore(newList, insertNewItemInList);
+        }else {
+            console.error("Insert element not found.");
+        }
+    }
+    if (addChild == "bottom") {
+        if (insertNewItemInList) { 
+            insertNewItemInList.insertAdjacentElement('afterend', newList);
+        } else {
+            console.error("Insert element not found.");
+        }
+    }
+
+      // Reset input values
+      particularsInput.value = "";
+      debitInput.value = "";
+      creditInput.value = "";
+
 
     eachItemDelete.addEventListener("click", (e) => {
         console.log(e)
@@ -59,11 +82,24 @@ const createAndAppendList = () => {
 
 };
 
+
+
 //event on the button to add new list
 addNewlists.addEventListener("click", (e) =>{
     e.preventDefault();
-    createAndAppendList();
+    const trimPraticalInput = particularsInput.value.trim("");
+    const trimDebitInput = debitInput.value.trim("");
+    const trimCreditInput = creditInput.value.trim("");
+
+    if( trimPraticalInput !== "" && trimDebitInput !== "" && trimCreditInput !== "" ){
+        alert("Debit & Credit can't enter at the same time !!!")
+    }else if ( trimPraticalInput && trimDebitInput || trimPraticalInput && trimCreditInput ) {
+        createAndAppendList("top");
+    } else{
+        alert("Please, Enter in the list");
+    }
 });
+
 
 
 //delete all lists
@@ -83,5 +119,68 @@ deleteAllFromTop.addEventListener("click", (e) =>{
     e.preventDefault();
     removeItems(entryListsWrapper, lists);
 });
+
+
+const addListInBottom = document.querySelector(".add-list-bottom");
+const addListInUp = document.querySelector(".add-list-top");
+
+//add list in bottom
+addListInBottom.addEventListener("click", (e) => {
+    e.preventDefault();
+    const focusList = entryListsWrapper.children;
+    const lastList = focusList[focusList.length - 1];
+    const trimPraticalInput = particularsInput.value.trim("");
+    const trimDebitInput = debitInput.value.trim("");
+    const trimCreditInput = creditInput.value.trim("");
+
+    if( trimPraticalInput !== "" && trimDebitInput !== "" && trimCreditInput !== "" ){
+        alert("Debit & Credit can't enter at the same time !!!")
+    }else if ( trimPraticalInput && trimDebitInput || trimPraticalInput && trimCreditInput ) {
+        createAndAppendList("bottom", lastList);
+    } else{
+        alert("Please, Enter in the list");
+    }
+});
+
+//add list on top
+addListInUp.addEventListener("click", (e) => {
+    e.preventDefault();
+    const focusList = entryListsWrapper.children;
+    const firstList = focusList[0];
+    const trimPraticalInput = particularsInput.value.trim("");
+    const trimDebitInput = debitInput.value.trim("");
+    const trimCreditInput = creditInput.value.trim("");
+
+    if( trimPraticalInput !== "" && trimDebitInput !== "" && trimCreditInput !== "" ){
+        alert("Debit & Credit can't enter at the same time !!!")
+    }else if ( trimPraticalInput && trimDebitInput || trimPraticalInput && trimCreditInput ) {
+        createAndAppendList("up", firstList);
+    } else{
+        alert("Please, Enter in the list");
+    }
+});
+
+
+
+////-------------------updating feature------------------------------------
+// entryListsWrapper.addEventListener("click", () => {
+//     const focusList = entryListsWrapper.children;
+//     const ChildArrayLists = Array.from(focusList);
+//     ChildArrayLists.forEach(list => {
+//         addListInBottom.addEventListener("click", (e) => {
+//             e.preventDefault();
+//             createAndAppendList("bottom", list);
+//         })
+//         addListInUp.removeEventListener("click", (e) => {
+//             e.preventDefault();
+//             createAndAppendList("up", list);
+//         })
+        
+//     });
+// });
+
+
+
+
 
 
