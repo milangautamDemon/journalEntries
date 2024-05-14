@@ -82,11 +82,24 @@ const createAndAppendList = (addChild, insertNewItemInList) => {
 
 };
 
+
+
 //event on the button to add new list
 addNewlists.addEventListener("click", (e) =>{
     e.preventDefault();
-    createAndAppendList("top");
+    const trimPraticalInput = particularsInput.value.trim("");
+    const trimDebitInput = debitInput.value.trim("");
+    const trimCreditInput = creditInput.value.trim("");
+
+    if( trimPraticalInput !== "" && trimDebitInput !== "" && trimCreditInput !== "" ){
+        alert("Debit & Credit can't enter at the same time !!!")
+    }else if ( trimPraticalInput && trimDebitInput || trimPraticalInput && trimCreditInput ) {
+        createAndAppendList("top");
+    } else{
+        alert("Please, Enter in the list");
+    }
 });
+
 
 
 //delete all lists
@@ -108,27 +121,48 @@ deleteAllFromTop.addEventListener("click", (e) =>{
 });
 
 
-//add list in top
 const addListInBottom = document.querySelector(".add-list-bottom");
 const addListInUp = document.querySelector(".add-list-top");
 
+//add list in bottom
 addListInBottom.addEventListener("click", (e) => {
     e.preventDefault();
     const focusList = entryListsWrapper.children;
     const lastList = focusList[focusList.length - 1];
-    createAndAppendList("bottom", lastList);
+    const trimPraticalInput = particularsInput.value.trim("");
+    const trimDebitInput = debitInput.value.trim("");
+    const trimCreditInput = creditInput.value.trim("");
+
+    if( trimPraticalInput !== "" && trimDebitInput !== "" && trimCreditInput !== "" ){
+        alert("Debit & Credit can't enter at the same time !!!")
+    }else if ( trimPraticalInput && trimDebitInput || trimPraticalInput && trimCreditInput ) {
+        createAndAppendList("bottom", lastList);
+    } else{
+        alert("Please, Enter in the list");
+    }
 });
 
+//add list on top
 addListInUp.addEventListener("click", (e) => {
     e.preventDefault();
     const focusList = entryListsWrapper.children;
     const firstList = focusList[0];
-    createAndAppendList("up", firstList);
+    const trimPraticalInput = particularsInput.value.trim("");
+    const trimDebitInput = debitInput.value.trim("");
+    const trimCreditInput = creditInput.value.trim("");
+
+    if( trimPraticalInput !== "" && trimDebitInput !== "" && trimCreditInput !== "" ){
+        alert("Debit & Credit can't enter at the same time !!!")
+    }else if ( trimPraticalInput && trimDebitInput || trimPraticalInput && trimCreditInput ) {
+        createAndAppendList("up", firstList);
+    } else{
+        alert("Please, Enter in the list");
+    }
 });
 
 
 
-
+////-------------------updating feature------------------------------------
 // entryListsWrapper.addEventListener("click", () => {
 //     const focusList = entryListsWrapper.children;
 //     const ChildArrayLists = Array.from(focusList);
